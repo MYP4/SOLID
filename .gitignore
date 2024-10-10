@@ -1,0 +1,9 @@
+**/bin
+**/logs
+**/obj
+**/.vs
+**/.idea
+**/.dockerignore
+appsettings.Development.json
+rabbitmq
+.docker
