@@ -35,22 +35,22 @@ public class RecipeBook
             {
                 case DishType.Salad:
                     Console.WriteLine($"Рецепт салата: {dish.Name}");
-                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients)}");
+                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients!)}");
                     Console.WriteLine($"Приготовление: {dish.PreparationMethod}");
                     break;
                 case DishType.Soup:
                     Console.WriteLine($"Рецепт супа: {dish.Name}");
-                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients)}");
+                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients!)}");
                     Console.WriteLine($"Приготовление: {dish.PreparationMethod}");
                     break;
                 case DishType.MainCourse:
                     Console.WriteLine($"Рецепт основного блюда: {dish.Name}");
-                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients)}");
+                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients!)}");
                     Console.WriteLine($"Приготовление: {dish.PreparationMethod}");
                     break;
                 case DishType.Dessert:
                     Console.WriteLine($"Рецепт десерта: {dish.Name}");
-                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients)}");
+                    Console.WriteLine($"Ингредиенты: {string.Join(", ", dish.Ingredients!)}");
                     Console.WriteLine($"Приготовление: {dish.PreparationMethod}");
                     break;
                 default:
@@ -85,31 +85,31 @@ public class RecipeBook
 
     private decimal CalculateSaladCost(Dish dish)
     {
-        return 100 * dish.Ingredients.Length;
+        return 100 * dish.Ingredients!.Length;
     }
 
     private decimal CalculateSoupCost(Dish dish)
     {
-        return 150 * dish.Ingredients.Length;
+        return 150 * dish.Ingredients!.Length;
     }
 
     private decimal CalculateMainCourseCost(Dish dish)
     {
-        return 200 * dish.Ingredients.Length;
+        return 200 * dish.Ingredients!.Length;
     }
 
     private decimal CalculateDessertCost(Dish dish)
     {
-        return 120 * dish.Ingredients.Length;
+        return 120 * dish.Ingredients!.Length;
     }
 }
 
 public class Dish
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public DishType Type { get; set; }
-    public string[] Ingredients { get; set; }
-    public string PreparationMethod { get; set; }
+    public string[]? Ingredients { get; set; }
+    public string? PreparationMethod { get; set; }
 }
 
 class Program

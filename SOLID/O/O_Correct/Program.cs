@@ -1,8 +1,8 @@
 ﻿public abstract class Dish
 {
-    public string Name { get; set; }
-    public string[] Ingredients { get; set; }
-    public string PreparationMethod { get; set; }
+    public string? Name { get; set; }
+    public string[]? Ingredients { get; set; }
+    public string? PreparationMethod { get; set; }
 
     public abstract void PrintRecipe();
     public abstract decimal CalculateCost();
@@ -13,13 +13,13 @@ public class Salad : Dish
     public override void PrintRecipe()
     {
         Console.WriteLine($"Рецепт салата: {Name}");
-        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients)}");
+        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients!)}");
         Console.WriteLine($"Приготовление: {PreparationMethod}");
     }
 
     public override decimal CalculateCost()
     {
-        return 100 * Ingredients.Length;
+        return 100 * Ingredients!.Length;
     }
 }
 
@@ -28,13 +28,13 @@ public class Soup : Dish
     public override void PrintRecipe()
     {
         Console.WriteLine($"Рецепт супа: {Name}");
-        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients)}");
+        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients!)}");
         Console.WriteLine($"Приготовление: {PreparationMethod}");
     }
 
     public override decimal CalculateCost()
     {
-        return 150 * Ingredients.Length;
+        return 150 * Ingredients!.Length;
     }
 }
 
@@ -43,13 +43,13 @@ public class MainCourse : Dish
     public override void PrintRecipe()
     {
         Console.WriteLine($"Рецепт основного блюда: {Name}");
-        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients)}");
+        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients!)}");
         Console.WriteLine($"Приготовление: {PreparationMethod}");
     }
 
     public override decimal CalculateCost()
     {
-        return 200 * Ingredients.Length;
+        return 200 * Ingredients!.Length;
     }
 }
 
@@ -58,13 +58,13 @@ public class Dessert : Dish
     public override void PrintRecipe()
     {
         Console.WriteLine($"Рецепт десерта: {Name}");
-        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients)}");
+        Console.WriteLine($"Ингредиенты: {string.Join(", ", Ingredients!)}");
         Console.WriteLine($"Приготовление: {PreparationMethod}");
     }
 
     public override decimal CalculateCost()
     {
-        return 120 * Ingredients.Length;
+        return 120 * Ingredients!.Length;
     }
 }
 

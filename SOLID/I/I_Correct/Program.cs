@@ -1,13 +1,5 @@
 ﻿using System.Reflection;
 
-/// <summary>
-/// Кононов Игорь
-/// 4 курс, 9 группа
-/// A. Грузоперевозки и логистика (грузы, порты, склады, города, поезда, контейнеры...)
-/// Принцип 'I'
-/// </summary>
-
-
 public interface IPort
 {
     public void ArriveToPort();

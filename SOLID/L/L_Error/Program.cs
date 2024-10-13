@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public abstract class TouristDestination
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public double Latitude { get; set; }
     public double Longitude { get; set; }
 
-    public virtual string GetName() => Name;
+    public virtual string GetName() => Name!;
     public virtual double GetLatitude() => Latitude;
     public virtual double GetLongitude() => Longitude;
 
