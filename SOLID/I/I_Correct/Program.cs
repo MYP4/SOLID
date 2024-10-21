@@ -1,88 +1,59 @@
 ﻿using System.Reflection;
 
-public interface IPort
+public interface ITransport{ }
+
+public interface IPort : ITransport
 {
     public void ArriveToPort();
 }
 
-public interface IWharehouse
+public interface IWharehouse : ITransport
 {
     public void ArriveToWarehouse();
 }
 
-public interface IStation
+public interface IStation : ITransport
 {
     public void ArriveToStation();
 }
 
-public interface IAirport
+public interface IAirport : ITransport
 {
     public void ArriveToAirport();
 }
 
-public abstract class Transport() { }
-
-public class Ship : Transport, IPort
+public class Ship : IPort
 {
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Корабль прибыл в порт");
-    }
+    public void ArriveToPort() =>Console.WriteLine("Корабль прибыл в порт");
 }
 
-public class Truck : Transport, IPort, IWharehouse, IAirport, IStation
+public class Truck : IPort, IWharehouse, IAirport, IStation
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Грузовик прибыл в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Грузовик прибыл в аэропорт");
 
-    public void ArriveToWarehouse()
-    {
-        Console.WriteLine("Грузовик прибыл на склад");
-    }
+    public void ArriveToWarehouse() => Console.WriteLine("Грузовик прибыл на склад");
 
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Грузовик прибыл в порт");
-    }
+    public void ArriveToPort() => Console.WriteLine("Грузовик прибыл в порт");
 
-    public void ArriveToStation()
-    {
-        Console.WriteLine("Грузовик прибыл на ЖД станцию");
-    }
+    public void ArriveToStation() => Console.WriteLine("Грузовик прибыл на ЖД станцию");
 }
 
-public class Airplane : Transport, IAirport
+public class Airplane : IAirport
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Самолет прибыл в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Самолет прибыл в аэропорт");
 }
 
-public class Train : Transport, IAirport, IPort, IWharehouse, IStation
+public class Train : IAirport, IPort, IWharehouse, IStation
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Поезд прибыл в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Поезд прибыл в аэропорт");
 
-    public void ArriveToWarehouse()
-    {
-        Console.WriteLine("Поезд прибыл на склад");
-    }
+    public void ArriveToWarehouse() => Console.WriteLine("Поезд прибыл на склад");
 
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Поезд прибыл в порт");
-    }
+    public void ArriveToPort() => Console.WriteLine("Поезд прибыл в порт");
 
-    public void ArriveToStation()
-    {
-        Console.WriteLine("Поезд прибыл на ЖД станцию");
-    }
+    public void ArriveToStation() => Console.WriteLine("Поезд прибыл на ЖД станцию");
 }
+
 
 class Program
 {
@@ -90,7 +61,7 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        var transports = new List<Transport>
+        var transports = new List<ITransport>
         {
             new Ship(),
             new Truck(),

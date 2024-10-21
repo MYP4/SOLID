@@ -8,7 +8,7 @@
 /// </summary>
 
 
-public interface Transport
+public interface ITransport
 {
     public void ArriveToPort();
     public void ArriveToWarehouse();
@@ -16,96 +16,48 @@ public interface Transport
     public void ArriveToAirport();
 }
 
-public class Ship : Transport
+public class Ship : ITransport
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Корабль не может прибыть в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Корабль не может прибыть в аэропорт");
 
-    public void ArriveToWarehouse()
-    {
-        Console.WriteLine("Корабль не может прибыть на склад");
-    }
+    public void ArriveToWarehouse() => Console.WriteLine("Корабль не может прибыть на склад");
 
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Корабль прибыл в порт");
-    }
+    public void ArriveToPort() => Console.WriteLine("Корабль прибыл в порт");
 
-    public void ArriveToStation()
-    {
-        Console.WriteLine("Корабль не может прибыть на ЖД станцию");
-    }
+    public void ArriveToStation() => Console.WriteLine("Корабль не может прибыть на ЖД станцию");
 }
 
-public class Truck : Transport
+public class Truck : ITransport
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Грузовик прибыл в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Грузовик прибыл в аэропорт");
 
-    public void ArriveToWarehouse()
-    {
-        Console.WriteLine("Грузовик прибыл на склад");
-    }
+    public void ArriveToWarehouse() => Console.WriteLine("Грузовик прибыл на склад");
 
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Грузовик прибыл в порт");
-    }
+    public void ArriveToPort() => Console.WriteLine("Грузовик прибыл в порт");
 
-    public void ArriveToStation()
-    {
-        Console.WriteLine("Грузовик прибыл на ЖД станцию");
-    }
+    public void ArriveToStation() => Console.WriteLine("Грузовик прибыл на ЖД станцию");
 }
 
-public class Airplane : Transport
+public class Airplane : ITransport
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Самолет прибыл в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Самолет прибыл в аэропорт");
 
-    public void ArriveToWarehouse()
-    {
-        Console.WriteLine("Самолет не может прибыть на склад");
-    }
+    public void ArriveToWarehouse() => Console.WriteLine("Самолет не может прибыть на склад");
 
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Самолет не может прибыть в порт");
-    }
+    public void ArriveToPort() => Console.WriteLine("Самолет не может прибыть в порт");
 
-    public void ArriveToStation()
-    {
-        Console.WriteLine("Самолет не может прибыть на ЖД станцию");
-    }
+    public void ArriveToStation() => Console.WriteLine("Самолет не может прибыть на ЖД станцию");
 }
 
-public class Train : Transport
+public class Train : ITransport
 {
-    public void ArriveToAirport()
-    {
-        Console.WriteLine("Поезд прибыл в аэропорт");
-    }
+    public void ArriveToAirport() => Console.WriteLine("Поезд прибыл в аэропорт");
 
-    public void ArriveToWarehouse()
-    {
-        Console.WriteLine("Поезд прибыл на склад");
-    }
+    public void ArriveToWarehouse() => Console.WriteLine("Поезд прибыл на склад");
+    
+    public void ArriveToPort() => Console.WriteLine("Поезд прибыл в порт");
 
-    public void ArriveToPort()
-    {
-        Console.WriteLine("Поезд прибыл в порт");
-    }
-
-    public void ArriveToStation()
-    {
-        Console.WriteLine("Поезд прибыл на ЖД станцию");
-    }
+    public void ArriveToStation() => Console.WriteLine("Поезд прибыл на ЖД станцию");
 }
 
 class Program
@@ -114,7 +66,7 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        var transports = new List<Transport>
+        var transports = new List<ITransport>
         {
             new Ship(),
             new Truck(),
