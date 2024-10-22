@@ -1,7 +1,4 @@
-﻿
-
-
-using D_Error;
+﻿using D_Error;
 
 /// <summary>
 /// Кононов Игорь
@@ -9,7 +6,6 @@ using D_Error;
 /// I. Техника (от карьерных самосвалов до стиральной машины)
 /// Принцип 'D'
 /// </summary>
-
 
 
 class Program
